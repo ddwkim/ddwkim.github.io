@@ -1,459 +1,463 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>resume.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Resume - Dong Won Kim</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2 {
+      color: #0056b3;
+    }
+
+    h2 {
+      border-bottom: 2px solid #0056b3;
+      padding-bottom: 6px;
+    }
+
+    ul {
+      list-style-position: inside;
+    }
+
+    a {
+      color: #0056b3;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .contact-info li,
+    .skills li,
+    .language li {
+      margin-bottom: 10px;
+    }
+
+    .experience-item,
+    .education-item {
+      margin-bottom: 15px;
+    }
+
+    .job-title {
+      font-weight: bold;
+    }
+
+    .company-name {
+      font-style: normal;
+    }
+
+    .details {
+      margin-left: 20px;
+    }
+
+    .details li {
+      margin-bottom: 5px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+    .language-switcher-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .language-switcher {
+      padding: 3px 6px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 12px;
+      /* Adjust font size if needed */
+      margin-left: 5px;
+      /* Add spacing between buttons */
+      transition: background-color 0.3s ease;
+    }
+
+    .language-switcher-english {
+      background-color: #4CAF50;
+      /* Green */
+      color: white;
+    }
+
+
+    .language-switcher-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .language-switcher {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      /* Adjust font size if needed */
+      margin-left: 5px;
+      /* Add spacing between buttons */
+      transition: background-color 0.3s ease;
+    }
+
+    .language-switcher-english {
+      background-color: #4CAF50;
+      /* Green */
+      color: white;
+    }
+
+    .language-switcher-korean {
+      background-color: #008CBA;
+      /* Blue */
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h2 id="%EA%B9%80%EB%8F%99%EC%9B%90">김동원</h2>
-<ul>
-<li>이메일: <a href="mailto:dwkim0824@gmail.com">dwkim0824@gmail.com</a></li>
-<li>전화: (82) 10-7680-2275</li>
-</ul>
-<h2 id="education">Education</h2>
-<ul>
-<li><strong>한국과학기술원(KAIST)</strong><br>
-B.S. in 전기및전자공학 (부전공: 물리학) [2017년 3월 - 2024년 2월]<br>
-GPA: 4.14 / 4.30, 최우등 졸업 (졸업 석차: 전체 졸업생 기준 9 / 434, 전기및전자공학부 기준 3 / 116)</li>
-</ul>
-<h2 id="experience">Experience</h2>
-<ul>
-<li>
-<p><strong>KAIST AI</strong><br>
-리서치 인턴 (지도 교수: 신진우, 멘토: 이경민) [2023년 12월 - ]</p>
-<ul>
-<li>vision foundation 모델을 이용한 text 기반의 image retrieval 방법론 조사 및 연구</li>
-</ul>
-</li>
-<li>
-<p><strong>Krafton AI</strong> (서울, 대한민국)<br>
-리서치 인턴 (지도 교수: 이강욱, 멘토: 김재현) [2023년 6월 - 2023년 8월]</p>
-<ul>
-<li>음성 생성 모델에 대한 평가 지표 및 파이프라인 연구 및 개발 <a href="https://openreview.net/forum?id=ofzeypWosV">[논문 링크]</a></li>
-<li>MOS에 기반한 음성 생성 모델의 평가 지표를 WER, Speaker Similarity으로 평가하는 것을 제안 및 구현</li>
-</ul>
-</li>
-<li>
-<p><strong>Return Zero Inc.</strong> (서울, 대한민국)<br>
-리서치 엔지니어 [2020년 7월 – 2023년 2월]</p>
-<ul>
-<li>
-<p>NAR E2E 음성 인식 시스템 개발</p>
-<ul>
-<li>E2E 음성 인식 엔진 리서치, 개발, 벤치마크 테스팅, 프로덕션 배포를 주도, 현재 서비스에 활용 중 <a href="https://www.rtzr.ai/">[모델 스펙]</a></li>
-<li>Resource 제한적인 환경에서 low-latency, high-throughput 음성 인식 엔진 개발</li>
-<li>100M 이상의 파라미터를 가진 end-to-end ASR 모델을 20k 시간의 음성 데이터로 훈련 및 배포</li>
-<li>unsupervised training 으로 domain robustness, supervised training의 안정성을 달성</li>
-<li>ASR 연구 트렌드를 기반으로 확장하여 Off-the-shelf neural network compiler에 적합하도록 모델을 변형하고 SoTA 기술 (ALiBi) 들을 적용하여 아키텍쳐를 디자인</li>
-<li>다양한 acceleration tactic 및 scheduling 적용으로 EC2 g4dnxlarge 인스턴스에서 500 RTFx 이상, streaming 환경에서 200ms latency 달성</li>
-<li>B2B 도메인별 요구 사항에 맞는 경량화된 customized layer 개발을 위해 CUDA, pybind11 사용</li>
-<li>개발된 엔진과 훈련 레시피가 on-prem B2B 사업과 VITO 애플리케이션에 적용 <a href="https://developers.rtzr.ai/?utm_source=vito_homepage&amp;utm_medium=%EB%AC%B4%EB%A3%8C_click&amp;utm_campaign=family_site_%EC%83%81%EB%8B%A8_api">[데모]</a></li>
-</ul>
-</li>
-<li>
-<p>하이브리드 ASR 시스템을 위한 neural network language model 개발</p>
-<ul>
-<li>Kaldi 음성 인식 시스템 향상을 위한 리스코어링 엔진 개발</li>
-<li>low-latency streaming을 위한 GPT 기반 language model에 neural network acceleration tactic을 조사 및 적용</li>
-<li>GPT2 모델을 사내 데이터에 튜닝 및 knowledge distillation을 적용, customized CUDA kernel을 통해 latency를 최소화하여 streaming ASR 개선에 사용 <a href="https://www.itworld.co.kr/news/241014">[관련 기사]</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="honors-and-awards">Honors and Awards</h2>
-<ul>
-<li>2024/02 - KAIST Summa Cum Laude</li>
-<li>2023/02 - Krafton AI Fellowship, Krafton Inc. (약 200명 참가자 중 Deep Learning 지식을 평가하여 5명을 선발, 인당 1000만원 상금 수여) <a href="https://aifellowship.krafton.com/">[추가정보]</a></li>
-<li>2017/09 - 2020/09 - KAIST Dean's List (상위 3% GPA, 8학기 중 4학기)</li>
-<li>2019/04 - KFAS Undergraduate Fellowship, 한국고등교육재단</li>
-<li>2017/02 - KAIST Presidential Fellowship (KPF) <a href="https://leadership.kaist.ac.kr/ko/page/sub/sub_0501.do">[추가정보]</a></li>
-</ul>
-<h2 id="contribution">Contribution</h2>
-<ul>
-<li><strong>음성 인식 레시피 개발</strong><br>
-PR 링크: <a href="https://github.com/speechbrain/speechbrain/pull/1813">https://github.com/speechbrain/speechbrain/pull/1813</a>
-<ul>
-<li>SpeechBrain, 오픈 소스 음성 툴킷의 한국어 레시피 개발에 기여 및 유지 보수</li>
-</ul>
-</li>
-</ul>
-<h2 id="skills">Skills</h2>
-<ul>
-<li><strong>Language:</strong> Python, C++, C, Shell Script, MySQL</li>
-<li><strong>Library, Toolkit:</strong> Pytorch, Fairseq, Kaldi, Triton Inference Server, Onnx, TensorRT, CMake</li>
-<li><strong>Software:</strong> Linux, Git, Docker, Docker Compose</li>
-</ul>
-<h2 id="language">Language</h2>
-<ul>
-<li><strong>English:</strong> TOEFL 104/120 (2022/12), TOEIC 990/990 (2022/12), TEPS 525/600 (상위 3.7%, 2024/2)</li>
-<li><strong>Korean:</strong> Native</li>
-</ul>
-<h2 id="others">Others</h2>
-<ul>
-<li><strong>Github:</strong> <a href="https://github.com/ddwkim">https://github.com/ddwkim</a></li>
-<li><strong>Blog Article:</strong> <a href="https://blog.rtzr.ai/speech-recognition-hybrid-e2e">https://blog.rtzr.ai/speech-recognition-hybrid-e2e</a></li>
-</ul>
+
+  <button class="language-switcher language-switcher-english" onclick="switchLanguage('english')">English</button>
+  <button class="language-switcher language-switcher-korean" onclick="switchLanguage('korean')">한국어</button>
+
+  <div id="english" class="content">
+    <h1>Dong Won Kim</h1>
+    <div class="section contact-info">
+      <ul>
+        <li>Email: <a href="mailto:dwkim0824@gmail.com">dwkim0824@gmail.com</a></li>
+        <li>Phone: (82) 10-7680-2275</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <div class="education-item">
+        <strong>Korea Advanced Institute of Science and Technology (KAIST)</strong><br>
+        B.S. in Electrical Engineering (Minor: Physics) [March 2017 - February 2024]<br>
+        GPA: 4.14 / 4.30, Summa Cum Laude (Rank: 9 / 434 overall, 3 / 116 in department)
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Experience</h2>
+      <div class="experience-item">
+        <div class="job-title">Research Engineer</div>
+        <div class="company-name">Krafton AI, Seoul, South Korea [March 2024 - Present]</div>
+        <ul class="details">
+          <li>
+            Speech Synthesis, ML system design
+          </li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <div class="job-title">Research Intern (Advisor: Kangwook Lee, Mentor: Jaehyun Kim)</div>
+        <div class="company-name">Krafton AI, Seoul, South Korea [June 2023 - August 2023]</div>
+        <ul class="details">
+          <li>Developed evaluation metrics and pipelines for voice generation models <a
+              href="https://openreview.net/forum?id=ofzeypWosV">[Paper]</a></li>
+          <li>Proposed and implemented the evaluation of voice generation models using MOS, WER, and Speaker
+            Similarity
+          </li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <div class="job-title">Research Engineer</div>
+        <div class="company-name">Return Zero Inc., Seoul, South Korea [July 2020 – February 2023]</div>
+        <ul class="details">
+          <p>Development of NAR E2E ASR system</p>
+          <ul>
+            <li>Lead the development, research, benchmark testing, and production deployment of an E2E speech
+              recognition
+              system, currently in service <a href="https://www.rtzr.ai/">[Model Specs]</a></li>
+            <li>Developed a low-latency, high-throughput speech recognition engine in resource-constrained
+              environments
+            </li>
+            <li>Trained and deployed an end-to-end ASR model with over 100M parameters on 20k hours of speech
+              data</li>
+            <li>Achieved domain robustness and stability in supervised training through unsupervised training
+              techniques
+            </li>
+            <li>Designed architecture adapting to off-the-shelf neural network compilers and applied SoTA
+              techniques
+              (ALiBi)
+              based on ASR research trends</li>
+            <li>Achieved over 500 RTFx on EC2 g4dnxlarge instances and 200ms latency in streaming environments
+              through
+              various acceleration tactics and scheduling</li>
+            <li>Utilized CUDA and pybind11 for the development of lightweight customized layers to meet
+              domain-specific
+              requirements in B2B applications</li>
+            <li>The developed engine and training recipes were applied in on-prem B2B businesses and the VITO
+              application
+              <a
+                href="https://developers.rtzr.ai/?utm_source=vito_homepage&amp;utm_medium=%EB%AC%B4%EB%A3%8C_click&amp;utm_campaign=family_site_%EC%83%81%EB%8B%A8_api">[Demo]</a>
+            </li>
+          </ul>
+          <p>Development of eural network language model for Hybrid ASR system</p>
+          <ul>
+
+            <li>Developed a rescoring engine to enhance the Kaldi speech recognition system</li>
+            <li>Investigated and applied neural network acceleration tactics to a GPT-based language model for
+              low-latency
+              streaming</li>
+            <li>Tuned a GPT2 model on in-house data and applied knowledge distillation, utilizing custom CUDA
+              kernels to
+              minimize latency for improvements in streaming ASR <a
+                href="https://www.itworld.co.kr/news/241014">[Related
+                Article]</a></li>
+          </ul>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Honors and Awards</h2>
+      <ul>
+        <li>2024/02 - KAIST Summa Cum Laude</li>
+        <li>2023/02 - Krafton AI Fellowship, Krafton Inc. (Selected 5 out of 200 participants based on their
+          Deep
+          Learning
+          knowledge and awarded each of them 10 million KRW) <a href="https://aifellowship.krafton.com/">[more
+            info]</a>
+        </li>
+        <li>2017/09 - 2020/09 - KAIST Dean's List (Top 3% GPA, 8 semsters out of 4)</li>
+        <li>2019/04 - KFAS Undergraduate Fellowship, Korea Foundation for Advanced Studies</li>
+        <li>2017/02 - KAIST Presidential Fellowship (KPF) <a
+            href="https://leadership.kaist.ac.kr/ko/page/sub/sub_0501.do">[more info]</a></li>
+      </ul>
+    </div>
+
+    <div class="section"></div>
+    <h2>Contribution</h2>
+    <ul>
+      <li><strong>Open-source contribution</strong><br>
+        Link to PR: <a
+          href="https://github.com/speechbrain/speechbrain/pull/1813">https://github.com/speechbrain/speechbrain/pull/1813</a>
+        <ul>
+          <li>SpeechBrain, Development and maintenance of E2E ASR Korean recipe</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="section">
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Language:</strong> Python, C++, C, Shell Script, MySQL</li>
+        <li><strong>Library, Toolkit:</strong> Pytorch, Fairseq, Kaldi, Triton Inference Server, Onnx, TensorRT,
+          CMake
+        </li>
+        <li><strong>Software:</strong> Linux, Git, Docker, Docker Compose</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Languages</h2>
+      <ul>
+        <li><strong>English:</strong> TOEFL 104/120 (2022/12), TOEIC 990/990 (2022/12), TEPS 525/600 (Top 3.7%,
+          2024/2)
+        </li>
+        <li><strong>Korean:</strong> Native</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Others</h2>
+      <ul>
+        <li><strong>Github:</strong> <a href="https://github.com/ddwkim">https://github.com/ddwkim</a></li>
+        <li><strong>Blog Article:</strong> Evolution from Hybrid to E2E ASR <a
+            href="https://blog.rtzr.ai/speech-recognition-hybrid-e2e">Korean version</a>
+          <a
+            href="https://medium.com/@dwkim0824/how-deep-learning-changed-speech-recognition-problems-from-hybrid-to-e2e-models-2a786a944335">English
+            version</a>
+        </li>
+      </ul>
+    </div>
 
 </body>
+</div>
+
+<div id="korean" class="content hidden">
+
+  <body>
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+      });
+    </script>
+
+    <div id="korean" class="content">
+      <h1>김동원</h1>
+      <div class="section contact-info">
+        <ul>
+          <li>Email: <a href="mailto:dwkim0824@gmail.com">dwkim0824@gmail.com</a></li>
+          <li>Phone: (82) 10-7680-2275</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Education</h2>
+        <div class="education-item">
+          <strong>한국과학기술원(KAIST)</strong><br>
+          B.S. in 전기및전자공학 (부전공: 물리학) [March 2017 - February 2024]<br>
+          GPA: 4.14 / 4.30, 최우등 졸업 (졸업 석차: 전체 졸업생 기준 9 / 434, 전기및전자공학부 기준 3 / 116)
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Experience</h2>
+        <div class="experience-item">
+          <div class="job-title">Deep Learning Engineer</div>
+          <div class="company-name">Krafton AI, Seoul, Seoul, South Korea [2024.03 - 현재]</div>
+          <ul class="details">
+            <li>
+              음성 합성, ML 시스템 디자인
+            </li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <div class="job-title">Research Intern (지도 교수: 이강욱, 멘토: 김재현) [2023년 6월 - 2023년 8월]</div>
+          <div class="company-name">Krafton AI, Seoul, Seoul, South Korea [2023.06 - 2023.08]</div>
+          <ul class="details">
+            <li>음성 생성 모델에 대한 평가 지표 및 파이프라인 연구 및 개발 <a href="https://openreview.net/forum?id=ofzeypWosV">[논문]</a>
+            </li>
+            <li>MOS에 기반한 음성 생성 모델의 평가 지표를 WER, Speaker Similarity으로 평가하는 것을 제안 및 구현</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <div class="job-title">Research Engineer</div>
+          <div class="company-name">Return Zero Inc., Seoul, South Korea [2020.07 – 2023.02]</div>
+          <ul class="details">
+
+            <p>NAR E2E 음성 인식 시스템 개발</p>
+            <ul>
+              <li>E2E 음성 인식 엔진 리서치, 개발, 벤치마크 테스팅, 프로덕션 배포를 주도, 현재 서비스에 활용 중 <a href="https://www.rtzr.ai/">[모델 스펙]</a>
+              </li>
+              <li>Resource 제한적인 환경에서 low-latency, high-throughput 음성 인식 엔진 개발</li>
+              <li>100M 이상의 파라미터를 가진 end-to-end ASR 모델을 20k 시간의 음성 데이터로 훈련 및 배포</li>
+              <li>unsupervised training 으로 domain robustness, supervised training의 안정성을 달성</li>
+              <li>ASR 연구 트렌드를 기반으로 확장하여 Off-the-shelf neural network compiler에 적합하도록 모델을 변형하고 SoTA 기술 (ALiBi) 들을 적용하여
+                아키텍쳐를 디자인</li>
+              <li>다양한 acceleration tactic 및 scheduling 적용으로 EC2 g4dnxlarge 인스턴스에서 500 RTFx 이상, streaming 환경에서 200ms
+                latency 달성</li>
+              <li>B2B 도메인별 요구 사항에 맞는 경량화된 customized layer 개발을 위해 CUDA, pybind11 사용</li>
+              <li>개발된 엔진과 훈련 레시피가 on-prem B2B 사업과 VITO 애플리케이션에 적용 <a
+                  href="https://developers.rtzr.ai/?utm_source=vito_homepage&amp;utm_medium=%EB%AC%B4%EB%A3%8C_click&amp;utm_campaign=family_site_%EC%83%81%EB%8B%A8_api">[데모]</a>
+              </li>
+            </ul>
+
+            <p>하이브리드 ASR 시스템을 위한 neural network language model 개발</p>
+            <ul>
+              <li>Kaldi 음성 인식 시스템 향상을 위한 리스코어링 엔진 개발</li>
+              <li>low-latency streaming을 위한 GPT 기반 language model에 neural network acceleration tactic을 조사 및 적용</li>
+              <li>GPT2 모델을 사내 데이터에 튜닝 및 knowledge distillation을 적용, customized CUDA kernel을 통해 latency를 최소화하여
+                streaming ASR 개선에 사용 <a href="https://www.itworld.co.kr/news/241014">[관련 기사]</a></li>
+            </ul>
+
+          </ul>
+        </div>
+
+
+
+        <div class="section">
+          <h2>Honors and Awards</h2>
+          <ul>
+            <li>2024/02 - KAIST Summa Cum Laude</li>
+            <li>2023/02 - Krafton AI Fellowship, Krafton Inc. (약 200명 참가자 중 Deep Learning 지식을 평가하여 5명을 선발, 인당 1000만원 상금
+              수여) <a href="https://aifellowship.krafton.com/">[추가정보]</a>
+            </li>
+            <li>2017/09 - 2020/09 - KAIST Dean's List (상위 3% GPA, 8학기 중 4학기)</li>
+            <li>2019/04 - KFAS Undergraduate Fellowship, 한국고등교육재단</li>
+            <li>2017/02 - KAIST Presidential Fellowship (KPF) <a
+                href="https://leadership.kaist.ac.kr/ko/page/sub/sub_0501.do">[추가정보]</a></li>
+          </ul>
+        </div>
+
+        <div class="section"></div>
+        <h2>Contribution</h2>
+        <ul>
+          <li><strong>Open-source contribution</strong><br>
+            PR 링크: <a
+              href="https://github.com/speechbrain/speechbrain/pull/1813">https://github.com/speechbrain/speechbrain/pull/1813</a>
+            <ul>
+              <li>SpeechBrain, 오픈 소스 음성 툴킷의 한국어 레시피 개발에 기여 및 유지 보수</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="section">
+          <h2>Skills</h2>
+          <ul>
+            <li><strong>Language:</strong> Python, C++, C, Shell Script, MySQL</li>
+            <li><strong>Library, Toolkit:</strong> Pytorch, Fairseq, Kaldi, Triton Inference Server, Onnx, TensorRT,
+              CMake
+            </li>
+            <li><strong>Software:</strong> Linux, Git, Docker, Docker Compose</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Languages</h2>
+          <ul>
+            <li><strong>English:</strong> TOEFL 104/120 (2022/12), TOEIC 990/990 (2022/12), TEPS 525/600 (Top 3.7%,
+              2024/2)
+            </li>
+            <li><strong>Korean:</strong> Native</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Others</h2>
+          <ul>
+            <li><strong>Github:</strong> <a href="https://github.com/ddwkim">https://github.com/ddwkim</a></li>
+            <li><strong>Blog Article:</strong> Evolution from Hybrid to E2E ASR <a
+                href="https://blog.rtzr.ai/speech-recognition-hybrid-e2e">Korean version</a>
+              <a
+                href="https://medium.com/@dwkim0824/how-deep-learning-changed-speech-recognition-problems-from-hybrid-to-e2e-models-2a786a944335">English
+                version</a>
+            </li>
+          </ul>
+        </div>
+
+  </body>
+</div>
+
+<script>
+  function switchLanguage(language) {
+    if (language === 'english') {
+      document.getElementById('english').classList.remove('hidden');
+      document.getElementById('korean').classList.add('hidden');
+    } else if (language === 'korean') {
+      document.getElementById('korean').classList.remove('hidden');
+      document.getElementById('english').classList.add('hidden');
+    }
+  }
+
+  // Optionally, automatically switch based on the browser's language settings
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang.startsWith("ko")) {
+      switchLanguage('korean');
+    } else {
+      switchLanguage('english');
+    }
+  });
+</script>
+
+</body>
+
 </html>
